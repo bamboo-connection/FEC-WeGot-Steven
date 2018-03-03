@@ -15,3 +15,4 @@ describe('App component', () => {
   	expect(component.find('.brand-logo').exists()).to.equal(true);
   })
 })
+

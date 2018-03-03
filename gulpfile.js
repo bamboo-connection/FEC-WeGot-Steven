@@ -9,8 +9,8 @@ gulp.task('copy', function() {
   gulp.src(folders[0])
       .pipe(gulp.dest('./public/'));
 
-  // gulp.src(folders[2])
-  //     .pipe(gulp.dest('./dist/'));
+  gulp.src(folders[1])
+      .pipe(gulp.dest('./public/'));
 });
 
 gulp.task('clean', function() {
