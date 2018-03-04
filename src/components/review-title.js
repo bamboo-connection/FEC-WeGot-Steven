@@ -12,7 +12,6 @@ class ReviewTitle extends React.Component {
 		var url = window.location.pathname;
 		var id = url.substring(url.lastIndexOf('/') + 1);
 		var context = this;
-		console.log(id)
 		$.ajax({
 			url: `http://localhost:3000/restaurant/${id}`,
 			type: 'GET',
@@ -39,7 +38,6 @@ class ReviewTitle extends React.Component {
 			} 
 			// if decimal place greater than or equal to 0.5, render half stars
 			let splitNum = ("" + starNum).split('.');
-			console.log('SPLIT: ', splitNum)
 			if (splitNum.length > 1) {
 				if (parseInt(splitNum[1]) >= 5) {
 					tempArr.push(<img src="../img/half-star.png" height="13" width="13" />)

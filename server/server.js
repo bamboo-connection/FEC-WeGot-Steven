@@ -35,6 +35,7 @@ app.get('/restaurant/:id', function(req, res) {
 	})
 })
 
+//----------------FOR GENERATING SEED FILES---------------------------
 // app.get('/test', function(req, res) {
 // 	var tempData = 'USE weGotData;\n';
 // 	var reviewData = 'USE weGotData;\n';
