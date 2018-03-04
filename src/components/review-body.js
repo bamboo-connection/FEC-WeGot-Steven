@@ -45,6 +45,7 @@ class ReviewBody extends React.Component {
 
 			return (<div>{tempArr}</div>);
 		}
+<<<<<<< HEAD
 
 		var reviewList = this.state.reviews.map(function(review) {
 			return (
@@ -61,10 +62,32 @@ class ReviewBody extends React.Component {
 						      </blockquote>
 						      <p>{review.author_name}</p>
 						      <p>{review.relative_time_description}</p>
+=======
+		
+		// Function for rendering 3 reviews onto body
+		let eachReview = () => { 
+			let tempArr = []
+			for (var i = 1; i <= 3; i++) {
+				tempArr.push(
+					<div className="col s12 m7">
+					  <div className="card horizontal">
+					    <div>
+					      <img className="img-circle" src="https://upload.wikimedia.org/wikipedia/commons/7/76/Llama_2_%2829696004%29.jpg" height="80" width="80" />
+					    </div>
+					    <div className="card-stacked">
+					      <div className="card-content">
+					      	{starHandler(4.6)}
+					      	<blockquote>
+					      		<p>"YumYum in my TumTum."</p>
+						      </blockquote>
+						      <p>-aznBoi76</p>
+						      <p>7 days ago</p>
+>>>>>>> 44d2177bff57947c359cf282cd13d72a57832e5c
 					      </div>
 					    </div>
 					  </div>
 					</div>
+<<<<<<< HEAD
 			)
 		})
 
@@ -79,6 +102,19 @@ class ReviewBody extends React.Component {
 				</div>
 			)
 		}
+=======
+				)
+			}
+			return (<div>{tempArr}</div>);
+		}
+
+
+		return (
+			<div>
+				{eachReview()}
+			</div>
+		)
+>>>>>>> 44d2177bff57947c359cf282cd13d72a57832e5c
 	}
 
 }
