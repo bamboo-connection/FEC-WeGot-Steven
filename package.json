@@ -8,6 +8,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "nodemon ./server/server.js",
     "build": "gulp build && webpack -p --config webpack.config.js --progress --profile --colors",
     "dev": "./node_modules/.bin/webpack-dev-server -d --host 0.0.0.0 --config webpack.config.js --content-base src/ --colors --hot --progress --inline --watch",
     "test": "jest"
@@ -20,11 +21,14 @@
     "babel-preset-react": "^6.24.1",
     "chai": "^4.1.2",
     "del": "^3.0.0",
+    "emoji-strip": "^1.0.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "extract-text-webpack-plugin": "^3.0.2",
+    "fs": "0.0.1-security",
     "gulp": "^3.9.1",
     "jest": "^22.4.2",
+    "jquery": "^3.3.1",
     "path": "^0.12.7",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
