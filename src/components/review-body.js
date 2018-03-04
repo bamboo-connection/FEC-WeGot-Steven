@@ -3,6 +3,27 @@ import React from 'react';
 class ReviewBody extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			reviews: [],
+		}
+	}
+
+	_getData() {
+		var url = window.location.pathname;
+		var id = url.substring(url.lastIndexOf('/') + 1);
+		var context = this;
+		console.log(id)
+		$.ajax({
+			url: `http://localhost:3000/reviews/${id}`,
+			type: 'GET',
+			success: function(data) {
+				context.setState({ reviews:data })
+			}
+		})
+	}
+
+	componentDidMount() {
+		this._getData.call(this)
 	}
 
 	render() {
@@ -24,40 +45,40 @@ class ReviewBody extends React.Component {
 
 			return (<div>{tempArr}</div>);
 		}
-		
-		// Function for rendering 3 reviews onto body
-		let eachReview = () => { 
-			let tempArr = []
-			for (var i = 1; i <= 3; i++) {
-				tempArr.push(
-					<div className="col s12 m7">
+
+		var reviewList = this.state.reviews.map(function(review) {
+			return (
+				<div className="col s12 m7">
 					  <div className="card horizontal">
 					    <div>
-					      <img className="img-circle" src="https://upload.wikimedia.org/wikipedia/commons/7/76/Llama_2_%2829696004%29.jpg" height="80" width="80" />
+					      <img className="img-circle" src={review.profile_photo_url} height="80" width="80" />
 					    </div>
 					    <div className="card-stacked">
 					      <div className="card-content">
-					      	{starHandler(4.6)}
+					      	{starHandler(review.rating)}
 					      	<blockquote>
-					      		<p>"YumYum in my TumTum."</p>
+					      		<p>{review.review_text}</p>
 						      </blockquote>
-						      <p>-aznBoi76</p>
-						      <p>7 days ago</p>
+						      <p>{review.author_name}</p>
+						      <p>{review.relative_time_description}</p>
 					      </div>
 					    </div>
 					  </div>
 					</div>
-				)
-			}
-			return (<div>{tempArr}</div>);
+			)
+		})
+
+		if (reviewList.length === 0) {
+			return (
+				<div>No Restaurant Found</div>
+			)
+		} else {
+			return (
+				<div>
+					{reviewList}
+				</div>
+			)
 		}
-
-
-		return (
-			<div>
-				{eachReview()}
-			</div>
-		)
 	}
 
 }
