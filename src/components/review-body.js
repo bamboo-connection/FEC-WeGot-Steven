@@ -45,16 +45,10 @@ class ReviewBody extends React.Component {
 
 			return (<div>{tempArr}</div>);
 		}
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> d65c69744ad824977c1d35319802b2c2ddb22743
 
 		var reviewList = this.state.reviews.map(function(review) {
 			return (
 				<div className="col s12 m7">
-<<<<<<< HEAD
-=======
 					  <div className="card horizontal">
 					    <div>
 					      <img className="img-circle" src={review.profile_photo_url} height="80" width="80" />
@@ -67,38 +61,10 @@ class ReviewBody extends React.Component {
 						      </blockquote>
 						      <p>{review.author_name}</p>
 						      <p>{review.relative_time_description}</p>
-=======
-		
-		// Function for rendering 3 reviews onto body
-		let eachReview = () => { 
-			let tempArr = []
-			for (var i = 1; i <= 3; i++) {
-				tempArr.push(
-					<div className="col s12 m7">
->>>>>>> d65c69744ad824977c1d35319802b2c2ddb22743
-					  <div className="card horizontal">
-					    <div>
-					      <img className="img-circle" src={review.profile_photo_url} height="80" width="80" />
-					    </div>
-					    <div className="card-stacked">
-					      <div className="card-content">
-					      	{starHandler(review.rating)}
-					      	<blockquote>
-					      		<p>{review.review_text}</p>
-						      </blockquote>
-<<<<<<< HEAD
-						      <p>{review.author_name}</p>
-						      <p>{review.relative_time_description}</p>
-=======
-						      <p>-aznBoi76</p>
-						      <p>7 days ago</p>
->>>>>>> 44d2177bff57947c359cf282cd13d72a57832e5c
->>>>>>> d65c69744ad824977c1d35319802b2c2ddb22743
 					      </div>
 					    </div>
 					  </div>
 					</div>
-<<<<<<< HEAD
 			)
 		})
 
@@ -113,36 +79,12 @@ class ReviewBody extends React.Component {
 				</div>
 			)
 		}
-=======
-<<<<<<< HEAD
-			)
-		})
-
-		if (reviewList.length === 0) {
-			return (
-				<div>No Restaurant Found</div>
-			)
-		} else {
-			return (
-				<div>
-					{reviewList}
-				</div>
-			)
-		}
-=======
-				)
-			}
-			return (<div>{tempArr}</div>);
-		}
-
 
 		return (
 			<div>
 				{eachReview()}
 			</div>
 		)
->>>>>>> 44d2177bff57947c359cf282cd13d72a57832e5c
->>>>>>> d65c69744ad824977c1d35319802b2c2ddb22743
 	}
 
 }
