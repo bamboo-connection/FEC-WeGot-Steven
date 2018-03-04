@@ -17,7 +17,11 @@ class ReviewTitle extends React.Component {
 			url: `http://localhost:3000/restaurant/${id}`,
 			type: 'GET',
 			success: function(data) {
-				context.setState({ restaurantData:data[0] })
+				let restaurantData = {};
+				if (data[0]) {
+					restaurantData = data[0]
+				}
+				context.setState({ restaurantData:restaurantData })
 			}
 		})
 	}
@@ -44,7 +48,7 @@ class ReviewTitle extends React.Component {
 
 			return (<div>{tempArr}</div>);
 		}
-
+		let rating = this.state.restaurantData.rating ? this.state.restaurantData.rating : null 
 		return (
 			<div>
 				<nav>
@@ -53,8 +57,8 @@ class ReviewTitle extends React.Component {
 				    	<i className="material-icons">
 				    		<img src="http://diylogodesigns.com/blog/wp-content/uploads/2016/04/google-logo-icon-PNG-Transparent-Background.png" height="35" width="35"></img>
 				    	</i>
-				    	<div style={{display: "inline-block"}}>GOOGLE REVIEWS {this.state.restaurantData.rating}</div>
-				    	<div style={{display: "inline-block"}}>{starHandler(this.state.restaurantData.rating)}</div>
+				    	<div style={{display: "inline-block"}}>GOOGLE REVIEWS {rating}</div>
+				    	<div style={{display: "inline-block"}}>{rating ? starHandler(this.state.restaurantData.rating) : null}</div>
 				    </a>
 				    <ul className="right hide-on-med-and-down">
 				      <li><a href="sass.html"><i className="material-icons">search</i></a></li>
